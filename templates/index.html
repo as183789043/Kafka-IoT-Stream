@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Sensor Data</h1>
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Sensor</th>
+                    <th>Battery (%)</th>
+                    <th>Temperature (°C)</th>
+                    <th>Humidity (%)</th>
+                    <th>Last Updated</th>
+                </tr>
+            </thead>
+            <tbody id="sensor-table">
+                <tr id="Sensor_1">
+                    <td>Sensor 1</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+                <tr id="Sensor_2">
+                    <td>Sensor 2</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+                <tr id="Sensor_3">
+                    <td>Sensor 3</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        // 監聽傳感器更新事件
+        socket.on('sensor_update', function(data) {
+            console.log('Sensor update received:', data);
+
+            var sensor = data.sensor;  // e.g., "sensor1"
+            var sensorData = data.data;
+
+            // 找到對應的表格行透過id
+            var sensorRow = document.getElementById(sensor);
+
+            if (sensorRow) {
+                // 更新表格行内容
+                sensorRow.cells[1].textContent = sensorData.Battery + '%';
+                sensorRow.cells[2].textContent = sensorData.Temperature + '°C';
+                sensorRow.cells[3].textContent = sensorData.Humidity + '%';
+                sensorRow.cells[4].textContent = new Date(sensorData.Timestamp).toLocaleString();
+            }
+        });
+
+        socket.on('connect', function() {
+            console.log("Connected to WebSocket server");
+        });
+    </script>
+
+    <!-- 引入 Bootstrap 的 JS 和依赖項 -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
