@@ -11,7 +11,8 @@ This project demonstrates how to collect IoT sensor data via Kafka. The sensor p
 ## Archiure Diagram
 
 ## Web Application Demo gif
-
+Weboscket will brocast new value to other user who access this web
+![websocket](https://github.com/user-attachments/assets/f18ef76e-ba66-44d5-8fbf-50a0a056d8bb)
 
 ## Kfaka UI
 ![image](https://github.com/user-attachments/assets/2c057017-0260-4cc9-a23e-f40fde05cc05)
