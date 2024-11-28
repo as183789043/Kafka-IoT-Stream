@@ -8,7 +8,7 @@ This project demonstrates how to collect IoT sensor data via Kafka. The sensor p
 [Quick Start Wiki](https://github.com/as183789043/Kafka-IoT-Stream/wiki/Quick-Start)
 
 
-## Archiure Diagram
+## Architecture Diagram
 
 ## Web Application Demo gif
 Weboscket will brocast new value to other user who access this web
