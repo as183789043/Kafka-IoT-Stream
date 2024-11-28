@@ -5,6 +5,17 @@ This project demonstrates how to collect IoT sensor data via Kafka. The sensor p
 
 
 ## Quick Start 
-[Quick-Start Wiki](https://github.com/as183789043/Kafka-IoT-Stream/wiki/Quick-Start)
+[Quick Start Wiki](https://github.com/as183789043/Kafka-IoT-Stream/wiki/Quick-Start)
+
+
+## Archiure Diagram
+
+## Web Application Demo gif
+
+
+## Kfaka UI
+![image](https://github.com/user-attachments/assets/2c057017-0260-4cc9-a23e-f40fde05cc05)
+![image](https://github.com/user-attachments/assets/93ea03bf-ef96-48e6-8416-e7398cc905c3)
+![image](https://github.com/user-attachments/assets/c8f410b8-3367-4771-85e3-4ec4b845a1b7)
 
 
